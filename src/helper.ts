@@ -19,6 +19,7 @@ async function makeNWSRequest<T>(url: string): Promise<T | null> {
       }
       return (await response.json()) as T;
     } catch (error) {
+      // 使用 stderr 输出错误，避免干扰 MCP 协议通信
       console.error("Error making NWS request:", error);
       return null;
     }
